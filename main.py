@@ -1,6 +1,16 @@
 import hangman_art
 import hangman_words
 import random
+from os import system, name
+def clear():
+  
+    # for windows
+    if name == 'nt':
+        _ = system('cls')
+  
+    # for mac and linux(here, os.name is 'posix')
+    else:
+        _ = system('clear')
 
 print(hangman_art.logo)
 end_of_game = False
@@ -16,6 +26,8 @@ for _ in range(word_length):
 
 while not end_of_game:
   guess = input("\nGuess a letter: ").lower()
+  
+  clear()
 
   if guess in display:
     print("\nYou have already entered the letter.")
